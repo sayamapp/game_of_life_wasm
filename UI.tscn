@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI.gd" type="Script" id=1]
+
+[node name="UI" type="Node2D"]
+z_index = 1
+script = ExtResource( 1 )
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 241.0
+margin_top = 15.0
+margin_right = 291.0
+margin_bottom = 36.0
+text = "START"
+
+[node name="StopButton" type="Button" parent="."]
+margin_left = 241.0
+margin_top = 43.0
+margin_right = 291.0
+margin_bottom = 63.0
+text = "STOP"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="FPS" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 15.0
+margin_right = 75.0
+margin_bottom = 29.0
+text = "FPS: 888"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Delta" type="Label" parent="."]
+margin_left = 94.0
+margin_top = 15.0
+margin_right = 158.0
+margin_bottom = 29.0
+text = "d:000.000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+use_parent_material = true
+margin_left = 21.0
+margin_top = 37.0
+margin_right = 216.0
+margin_bottom = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
