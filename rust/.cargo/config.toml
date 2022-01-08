@@ -1,0 +1,10 @@
+[profile.release]
+opt-level = "s"
+overflow-checks = false
+debug-assertions = false
+lto = true
+panic = "abort"
+
+[target.wasm32-unknown-emscripten]
+linker = "/emcc-test"
+rustflags = "-C link-args=-fPIC -C relocation-model=pic -v"
