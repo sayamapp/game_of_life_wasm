@@ -6,11 +6,13 @@ var is_run = false
 const FIELD_SIZE = 640
 const TEXTURE_SIZE = 64
 
-onready var texture = preload("res://icon.png")
+# リソース(テクスチャ、native script、visualserver_rid)のプリロード
+onready var texture = preload("res://icon.png") 
 onready var gol = preload("res://gol.gdns").new()
 onready var ci_rid = VisualServer.canvas_item_create()
 
 func _ready():
+	# UIノードのシグナルを接続
 	var ui_node = get_parent().get_node("UI")
 	ui_node.connect("start", self, "_on_start")
 	ui_node.connect("stop", self, "_on_stop")
@@ -18,10 +20,11 @@ func _ready():
 
 	VisualServer.canvas_item_set_parent(ci_rid, get_canvas_item())
 
-	gol.init(size)
+	gol.init(size) #GameOfLife構造体(rust側)の初期化
 	_on_change_size(size)
 	_draw()
 
+# メインループ
 func _process(_delta):
 	if is_run:
 		gol.calc()
@@ -29,6 +32,7 @@ func _process(_delta):
 		gol.calc_rand()
 	_draw()
 
+# セルの描画
 func _draw():
 	VisualServer.canvas_item_clear(ci_rid)
 	var _array = gol.get_array()
